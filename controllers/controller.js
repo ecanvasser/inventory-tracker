@@ -6,11 +6,12 @@ exports.getCategories = async (req, res) => {
 };
 
 exports.getRelatedProducts = async (req, res) => {
-  const categoryId = req.params.id;
-  console.log(categoryId);
+  const category = req.params.category;
   const { rows } = await db.query(
-    `SELECT * FROM products JOIN categories ON products.category_id = categories.id WHERE category_id = ${categoryId}`
+    `SELECT * FROM products 
+     JOIN categories ON products.category_id = categories.id 
+     WHERE categories.category ILIKE $1`,
+    [category]
   );
-  console.log(rows);
   res.render("categoryView", { products: rows });
 };
