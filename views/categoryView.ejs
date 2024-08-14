@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Tracker</title>
+    <title>Products</title>
 </head>
 <body>
-    <h2>Inventory Dashboard</h2>
-    <% categories.forEach( (x, i) => { %>
-        <a href="/<%=x.id%>"><%= x.category %></a>
+    <h2>Related Products</h2>
+    <% products.forEach( (x, i) => { %>
+        <a href="/<%=x.id%>"><%= x.name %></a>
     <% }) %>
 </body>
 </html>

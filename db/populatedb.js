@@ -48,9 +48,7 @@ async function main() {
     connectionString: process.env.URI,
   });
   try {
-    console.log("Connection string:", process.env.URI);
     await client.connect();
-    console.log("Connected to database");
     const result = await client.query(SQL);
     console.log("Query executed. Tables created and data inserted.");
   } catch (err) {
