@@ -15,3 +15,13 @@ exports.getRelatedProducts = async (req, res) => {
   );
   res.render("categoryView", { products: rows });
 };
+
+exports.getNewCategoryPage = (req, res) => {
+  res.render("newCategory");
+};
+
+exports.newCategoryPost = async (req, res) => {
+  const category = req.body.category
+  await db.query("INSERT INTO categories (category) VALUES ($1)", [category]);
+  res.redirect("/");
+};

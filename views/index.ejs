@@ -7,6 +7,9 @@
 </head>
 <body>
     <h2>Inventory Dashboard</h2>
+    <form action="/newcategory" method="GET">
+        <button type="submit">New Category</button>
+    </form>
     <% categories.forEach( (x, i) => { %>
         <a href="/<%=x.category%>"><%= x.category %></a>
     <% }) %>
